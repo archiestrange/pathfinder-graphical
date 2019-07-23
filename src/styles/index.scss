@@ -2,23 +2,23 @@
     position: fixed;
     z-index: 999;
     width: 100%;
-    font-family: arial;
-    .warning-text{
-        text-align: center;
-        color: orange;
-    }
+    text-align: center;
     > button{
-        margin-right: 15px;
+        background-color: #aeaeae;
+        border: none;
         border-radius: 3px;
-        border: 1px solid black;
-        height: 35px;
-        font-weight: 400;
+        color: white;
+        padding: 8px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
     }
 }
 
 #graphical-pathfinder-container{
     margin: auto;
-    padding-top: 100px;
+    padding-top: 65px;
     width: 375px;
     border-radius: 3px;
     font-family: arial;
@@ -35,6 +35,15 @@
             stroke: orange;
             stroke-width: 2;
         }
+    }
+
+    .destination-orb {
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
     }
 
     .green {
@@ -59,13 +68,16 @@
         display: none;
     }
 
-    .destination-orb {
-        border: 1px solid black;
-        border-radius: 50%;
-        width: 75px;
-        height: 75px;
-        line-height: 75px;
-        text-align: center;
+    .first-select:hover{
+        border: 0 !important;
+        box-shadow: 1px 1px 5px 5px #3fdc54;
+        background-color: #3fdc54;
+    }
+
+    .second-select:hover {
+        border: 0 !important;
+        box-shadow: 1px 1px 5px 5px #FF4500;
+        background-color: #FF4500;
     }
 
     > .squeeze-row{

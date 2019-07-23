@@ -11,7 +11,6 @@ interface LocalState {
   siteA?: Destination;
   siteB?: Destination;
   result?: CalculationResult[];
-  validationMessage?: string;
   bestResult?: CalculationItem;
 }
 
@@ -19,7 +18,6 @@ const initialState: LocalState = {
   siteA: undefined,
   siteB: undefined,
   result: undefined,  
-  validationMessage: undefined,
   bestResult: undefined
 };
 
@@ -32,7 +30,6 @@ export class App extends React.Component<ComponentProps, LocalState> {
     this.calculate = this.calculate.bind(this);
     this.updateInputA = this.updateInputA.bind(this);
     this.updateInputB = this.updateInputB.bind(this);
-    this.renderValidationMessage = this.renderValidationMessage.bind(this);
   }
   
   componentDidUpdate() {
@@ -42,25 +39,17 @@ export class App extends React.Component<ComponentProps, LocalState> {
   }
 
   updateInputA(siteA: Destination): void {
-    this.setState({ siteA, validationMessage: undefined });
+    this.setState({ siteA });
   }
   
   updateInputB(siteB: Destination): void {
-    this.setState({ siteB, validationMessage: undefined });
+    this.setState({ siteB });
   }
 
   calculate(): void {
     const { siteA, siteB } = this.state;
     const result = Calculate(siteA!, siteB!);
     this.setState({ result: convertResultToStringArray(result), bestResult: result[0] });
-  }
-
-  renderValidationMessage(): JSX.Element | null {
-    const { validationMessage } = this.state;
-    if (validationMessage) {
-      return <p className="warning-text">{validationMessage}</p>;
-    }
-    return null;
   }
 
   reset() {
@@ -71,7 +60,6 @@ export class App extends React.Component<ComponentProps, LocalState> {
     return <div>
       <div id="toolbar">
         <button onClick={this.reset}>Reset</button>
-        <div>{this.renderValidationMessage()}</div>
       </div>
       <GraphicalUI
           siteA={this.state.siteA}

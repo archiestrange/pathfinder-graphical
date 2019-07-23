@@ -35,7 +35,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
     }
 
     getOrbClasses(orb: Destination): string {
-        
+
         if (this.props.siteA === orb){
             return "green";
         }
@@ -43,7 +43,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
         if (this.props.siteB === orb) {
             return "red";
         }
-        
+
         if (this.props.result) {
             const allStarts = this.props.result.usedRoutes.map(r => r.start);
             const allEnds = this.props.result.usedRoutes.map(r => r.end);
@@ -52,6 +52,14 @@ export class GraphicalUI extends React.Component<ComponentProps> {
             } else {
                 return "hidden";
             }
+        }
+        
+        if (this.props.siteA) {
+            if(!this.props.siteB) {
+                return "second-select"
+            }
+        } else {
+            return "first-select"
         }
 
         return "";

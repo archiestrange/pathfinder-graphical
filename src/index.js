@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
-import { App } from './App';
+import { Pathfinder } from './components/pathfinder';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Pathfinder />, document.getElementById('root'));

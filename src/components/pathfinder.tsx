@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles/index.scss';
-import { Destination, CalculationResult, CalculationItem } from './types';
-import { Calculate } from './calculate-route';
-import { convertResultToStringArray } from './utils';
+import '../styles/index.scss';
+import { Destination, CalculationResult, CalculationItem } from '../types';
+import { Calculate } from '../functions/calculate-route';
+import { convertResultToStringArray } from '../functions/utils';
 import { GraphicalUI } from './graphical-ui';
 
 interface ComponentProps {}
@@ -21,7 +21,7 @@ const initialState: LocalState = {
   bestResult: undefined
 };
 
-export class App extends React.Component<ComponentProps, LocalState> {
+export class Pathfinder extends React.Component<ComponentProps, LocalState> {
   
   constructor(props: ComponentProps) {
     super(props);

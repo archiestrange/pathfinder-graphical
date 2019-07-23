@@ -1,4 +1,4 @@
-import { CalculationItem, Destination, Route } from "./types";
+import { CalculationItem, Destination, Route } from "../types";
 import { routesAvailable } from "./get-available-routes";
 
 export const getConnectingRoutes = (route: CalculationItem, startSite: Destination): Route[] => {

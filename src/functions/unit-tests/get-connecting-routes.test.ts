@@ -1,4 +1,4 @@
-import { CalculationItem, Destination, Route } from "../types";
+import { CalculationItem, Destination, Route } from "../../types";
 import { getConnectingRoutes } from "../get-connection-routes";
 
 test("Get connecting routes", () => {

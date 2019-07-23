@@ -1,5 +1,5 @@
-import { A_ROUTES, B_ROUTES, C_ROUTES, D_ROUTES, E_ROUTES, F_ROUTES, G_ROUTES, H_ROUTES } from "./routes";
-import { Route, Destination } from "./types";
+import { A_ROUTES, B_ROUTES, C_ROUTES, D_ROUTES, E_ROUTES, F_ROUTES, G_ROUTES, H_ROUTES } from "../routes";
+import { Route, Destination } from "../types";
 
 export function routesAvailable(currentSite: Destination): Route[] {
     switch(currentSite) {

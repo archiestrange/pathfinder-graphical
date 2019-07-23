@@ -1,5 +1,5 @@
 import { destinations, convertResultToStringArray } from "../utils";
-import { Destination } from "../types";
+import { Destination } from "../../types";
 
 test("Destinations string created correctly", () => {
     const testDestinations = destinations;

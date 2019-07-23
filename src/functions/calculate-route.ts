@@ -1,4 +1,4 @@
-import { Destination, CalculationItem, UsedRoute } from "./types";
+import { Destination, CalculationItem, UsedRoute } from "../types";
 import { getConnectingRoutes } from "./get-connection-routes";
 
 export function Calculate(startSite: Destination, endSite: Destination): CalculationItem[] {

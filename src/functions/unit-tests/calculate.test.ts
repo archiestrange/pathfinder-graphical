@@ -1,5 +1,5 @@
 import { Calculate } from "../calculate-route";
-import { Destination, CalculationItem } from "../types";
+import { Destination, CalculationItem } from "../../types";
 
 test("Calculate test", () => {
     // A - C is one step and simple test

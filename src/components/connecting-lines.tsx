@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Destination, CalculationItem} from "./types";
+import { Destination, CalculationItem} from "../types";
+import { getOrbIdValue } from "../functions/utils";
 
 interface ComponentProps {
     result?: CalculationItem;
-    getDivIdValue: (destination: Destination) => string;
 }
 
 export class ConnectingLines extends React.Component<ComponentProps> {
 
     getDivLocation(destination: Destination) {
-        const id = this.props.getDivIdValue(destination);
+        const id = getOrbIdValue(destination);
         const element = document.getElementById(id);
         const el = element!.getBoundingClientRect();
         const padding = 37.5;

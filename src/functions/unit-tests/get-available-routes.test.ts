@@ -1,6 +1,6 @@
-import { A_ROUTES, B_ROUTES, H_ROUTES, G_ROUTES, F_ROUTES, E_ROUTES, D_ROUTES, C_ROUTES } from "../routes";
+import { A_ROUTES, B_ROUTES, H_ROUTES, G_ROUTES, F_ROUTES, E_ROUTES, D_ROUTES, C_ROUTES } from "../../routes";
 import { routesAvailable } from "../get-available-routes";
-import { Destination } from "../types";
+import { Destination } from "../../types";
 
 test("Get route correctly", () => {
   const routeA = routesAvailable(Destination.A);

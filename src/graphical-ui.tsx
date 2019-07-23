@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Destination, CalculationResult, CalculationItem } from "./types";
-import { ConnectinLines } from "./connecting-lines";
+import { Destination, CalculationItem } from "./types";
+import { ConnectingLines } from "./connecting-lines";
 
 interface ComponentProps {
     siteA?: Destination;
@@ -35,6 +35,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
     }
 
     getOrbClasses(orb: Destination): string {
+        
         if (this.props.siteA === orb){
             return "green";
         }
@@ -62,7 +63,6 @@ export class GraphicalUI extends React.Component<ComponentProps> {
                 return;
             } else {
                 this.props.updateInputB(destination);
-                this.props.calculate();
             }
         } else {
             this.props.updateInputA(destination);
@@ -103,7 +103,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
                     className={this.getOrbClasses(Destination.H) +" destination-orb"}
                     onClick={() => this.setSiteInfo(Destination.H)}>H</div>
             </div>
-            <ConnectinLines
+            <ConnectingLines
                 result={this.props.result}
                 getDivIdValue={this.getDivIdValue}/>
         </div>

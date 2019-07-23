@@ -6,15 +6,16 @@ interface ComponentProps {
     getDivIdValue: (destination: Destination) => string;
 }
 
-export class ConnectinLines extends React.Component<ComponentProps> {
+export class ConnectingLines extends React.Component<ComponentProps> {
 
     getDivLocation(destination: Destination) {
         const id = this.props.getDivIdValue(destination);
         const element = document.getElementById(id);
         const el = element!.getBoundingClientRect();
+        const padding = 37.5;
         return {
-            x: el.left + window.scrollX,
-            y: el.top + window.scrollY
+            x: el.left + window.scrollX + padding,
+            y: el.top + window.scrollY + padding
         };
     }
 
@@ -24,7 +25,7 @@ export class ConnectinLines extends React.Component<ComponentProps> {
                 const divALocation = this.getDivLocation(r.start);
                 const divBLocation = this.getDivLocation(r.end);
                 return <svg className="svg" width="500" height="500">
-                    <line x1={divALocation.x + 37.5} y1={divALocation.y + 37.5} x2={divBLocation.x + 37.5} y2={divBLocation.y + 37.5} />
+                    <line x1={divALocation.x} y1={divALocation.y} x2={divBLocation.x} y2={divBLocation.y} />
                 </svg>
             });
         }

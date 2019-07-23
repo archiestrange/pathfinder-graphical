@@ -44,6 +44,8 @@
         height: 75px;
         line-height: 75px;
         text-align: center;
+        user-select: none;
+        cursor: pointer;
     }
 
     .green {
@@ -70,14 +72,14 @@
 
     .first-select:hover{
         border: 0 !important;
-        box-shadow: 1px 1px 5px 5px #3fdc54;
-        background-color: #3fdc54;
+        box-shadow: 1px 1px 5px 5px #3eb54e;
+        background-color: #3eb54e;
     }
 
     .second-select:hover {
         border: 0 !important;
-        box-shadow: 1px 1px 5px 5px #FF4500;
-        background-color: #FF4500;
+        box-shadow: 1px 1px 5px 5px #e23f03;
+        background-color: #e23f03;
     }
 
     > .squeeze-row{

@@ -1,0 +1,154 @@
+#toolbar {
+    position: fixed;
+    z-index: 999;
+}
+
+#graphical-pathfinder-container{
+    margin: auto;
+    padding-top: 35px;
+    width: 375px;
+    border-radius: 3px;
+    font-family: arial;
+    
+    .svg{
+        z-index: -999;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        line {
+            stroke: orange;
+            stroke-width: 2;
+        }
+    }
+
+    .green {
+        border: 0 !important;
+        box-shadow: 1px 1px 5px 5px #3fdc54;
+        background-color: #3fdc54;
+    }
+    .orange {
+        border: 0 !important;
+        box-shadow: 1px 1px 5px 5px orange;
+        background-color: orange;
+    }
+    .red {
+        border: 0 !important;
+        box-shadow: 1px 1px 5px 5px #FF4500;
+        background-color: #FF4500;
+    }
+    .hidden {
+        display: none;
+    }
+
+    .destination-orb {
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
+    }
+
+    > .squeeze-row{
+        height: 110px;
+        & :first-child {
+            float: left;
+            margin-left: 75px;
+        }
+        
+        & :last-child {
+            float: right;
+            margin-right: 75px;
+        }
+    }
+
+    > .loose-row{
+        height: 110px;
+
+        > .wide-left-section{
+            float: left;
+        }
+
+        > .wide-right-section{
+            float: right;
+        }
+    }
+}
+
+#simple-pathfinder-container{
+    margin: auto;
+    width: 50%;
+    border: 1px solid #aeaeae;
+    border-radius: 3px;
+    font-family: arial;
+    background-color: #fafafa;
+
+    > #header {
+        font-style: 20px;
+        border-bottom: 1px solid #aeaeae;
+        padding: 15px;
+    }
+
+    > #body {
+
+        padding: 15px;
+
+        > .route-picker-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            
+            > .route-picker {
+                width: 100px;
+                border-radius: 3px;
+                margin: 0 10px;
+            }
+        }
+
+        > #calculate-button-container {
+            display: flex;
+            justify-content: center;
+
+            > button {
+                width: 220px;
+                height: 35px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        .warning-text{
+            text-align: center;
+            color: orange;
+        }
+
+        > #result-field-container {
+            margin-top: 20px;
+            max-height: 175px;
+            overflow: auto;
+            font-size: 14px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #aeaeae;
+            border-radius: 3px;
+
+            > .centered-text{
+                text-align: center;
+            }
+
+            & :first-child {
+                font-weight: 600;
+            }
+        
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #aeaeae;
+                border-radius: 5px; 
+            }
+        }
+    }
+}

@@ -15,14 +15,24 @@ interface LocalState {
   bestResult?: CalculationItem;
 }
 
+const initialState: LocalState = {
+  siteA: undefined,
+  siteB: undefined,
+  result: undefined,  
+  validationMessage: undefined,
+  bestResult: undefined
+};
+
 export class App extends React.Component<ComponentProps, LocalState> {
   
   constructor(props: ComponentProps) {
     super(props);
+    this.state = initialState;
     this.reset = this.reset.bind(this);
     this.calculate = this.calculate.bind(this);
     this.updateInputA = this.updateInputA.bind(this);
     this.updateInputB = this.updateInputB.bind(this);
+    this.onSelectCalculate = this.onSelectCalculate.bind(this);
     this.renderValidationMessage = this.renderValidationMessage.bind(this);
   }
   
@@ -34,10 +44,17 @@ export class App extends React.Component<ComponentProps, LocalState> {
     this.setState({ siteB, validationMessage: undefined });
   }
 
+  onSelectCalculate() {
+    const isValid = this.validate();
+    if (isValid) {
+      this.calculate();
+    }
+  }
+
   // Would prefer this to be seperate and set in reducer rather than local state
   validate() {
     const { siteA, siteB } = this.state;
-    const bothSelected = siteA && siteB
+    const bothSelected = siteA && siteB;
 
     // If one field is empty
     if (!bothSelected) {
@@ -46,12 +63,7 @@ export class App extends React.Component<ComponentProps, LocalState> {
       return false;
     }
 
-    // If both fields are the same
-    if (bothSelected && siteA === siteB) {
-      const validationMessage = "Please select two different destinations";
-      this.setState({ validationMessage, result: undefined });
-      return false;
-    }
+    this.setState({ validationMessage: undefined });
 
     // Valid
     return true;
@@ -59,11 +71,8 @@ export class App extends React.Component<ComponentProps, LocalState> {
 
   calculate(): void {
     const { siteA, siteB } = this.state;
-    const isValid = this.validate();
-    if (isValid) {
-      const result = Calculate(siteA!, siteB!);
-      this.setState({ result: convertResultToStringArray(result), bestResult: result[0] });
-    }
+    const result = Calculate(siteA!, siteB!);
+    this.setState({ result: convertResultToStringArray(result), bestResult: result[0] });
   }
 
   renderValidationMessage(): JSX.Element | null {
@@ -75,15 +84,15 @@ export class App extends React.Component<ComponentProps, LocalState> {
   }
 
   reset() {
-    this.setState({ siteA: undefined, siteB: undefined, bestResult: undefined, result: undefined });
+    this.setState(initialState);
   }
 
   render() {
     return <div>
       <div id="toolbar">
-        <button onClick={this.calculate}>Calculate</button>
+        <button onClick={this.onSelectCalculate}>Calculate</button>
         <button onClick={this.reset}>Reset</button>
-        <span>{this.renderValidationMessage()}</span>
+        <div>{this.renderValidationMessage()}</div>
       </div>
       <GraphicalUI
           siteA={this.state.siteA}

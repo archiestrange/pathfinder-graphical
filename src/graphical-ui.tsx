@@ -9,8 +9,6 @@ interface ComponentProps {
     calculate: () => void;
     updateInputA: (siteA: Destination) => void;
     updateInputB: (siteB: Destination) => void;
-    renderValidationMessage: () => JSX.Element | null;
-    renderResultText: () => JSX.Element | null;
 }
 
 export class GraphicalUI extends React.Component<ComponentProps> {

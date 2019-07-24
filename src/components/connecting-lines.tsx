@@ -23,7 +23,7 @@ export function ConnectingLines(result?: CalculationItem) {
             const divALocation = getDivLocation(r.start);
             const divBLocation = getDivLocation(r.end);
             if (divALocation && divBLocation) {
-                return <svg className="svg" width="500" height="500">
+                return <svg key={r.start} className="svg" width="500" height="500">
                     <line x1={divALocation.x} y1={divALocation.y} x2={divBLocation.x} y2={divBLocation.y} />
                 </svg>
             }

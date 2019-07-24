@@ -2,13 +2,9 @@ import * as React from "react";
 import { Destination, CalculationItem} from "../types";
 import { getOrbIdValue } from "../functions/utils";
 
-interface ComponentProps {
-    result?: CalculationItem;
-}
+export function ConnectingLines(result?: CalculationItem) {
 
-export class ConnectingLines extends React.Component<ComponentProps> {
-
-    getDivLocation(destination: Destination) {
+    const getDivLocation = (destination: Destination) => {
         const id = getOrbIdValue(destination);
         const element = document.getElementById(id);
         if (element) {
@@ -22,18 +18,16 @@ export class ConnectingLines extends React.Component<ComponentProps> {
         return null;
     }
 
-    render() {
-        if (this.props.result) {
-            return this.props.result.usedRoutes.map(r => {
-                const divALocation = this.getDivLocation(r.start);
-                const divBLocation = this.getDivLocation(r.end);
-                if (divALocation && divBLocation) {
-                    return <svg className="svg" width="500" height="500">
-                        <line x1={divALocation.x} y1={divALocation.y} x2={divBLocation.x} y2={divBLocation.y} />
-                    </svg>
-                }
-            });
-        }
-        return null;
+    if (result) {
+        return result.usedRoutes.map(r => {
+            const divALocation = getDivLocation(r.start);
+            const divBLocation = getDivLocation(r.end);
+            if (divALocation && divBLocation) {
+                return <svg className="svg" width="500" height="500">
+                    <line x1={divALocation.x} y1={divALocation.y} x2={divBLocation.x} y2={divBLocation.y} />
+                </svg>
+            }
+        });
     }
+    return null;
 }

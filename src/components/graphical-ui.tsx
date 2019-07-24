@@ -102,8 +102,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
                     onClick={() => this.setSiteInfo(Destination.H)}>H</div>
 
             </div>
-
-            <ConnectingLines result={this.props.result} />
+            {ConnectingLines(this.props.result)}
         </div>
     }
 }

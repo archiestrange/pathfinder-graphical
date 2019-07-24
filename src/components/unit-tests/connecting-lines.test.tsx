@@ -9,13 +9,10 @@ describe("Connecting Lines", () => {
 
     it("SVG lines DO NOT render when result is undefined", () => {
         const connectingLinesComponent = (
-            <ConnectingLines
-                result={undefined} />
+            ConnectingLines(undefined)
         );
 
-        const component = shallow(connectingLinesComponent);
-        const svg = component.find("svg");
-        expect(svg.exists()).toEqual(false);
+        expect(connectingLinesComponent).toEqual(null);
     });
 
 });

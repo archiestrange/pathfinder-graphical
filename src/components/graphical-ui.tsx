@@ -15,18 +15,22 @@ interface ComponentProps {
 export class GraphicalUI extends React.Component<ComponentProps> {
 
     getOrbClasses(orb: Destination): string {
-
+        // Give green class to the starting destination orb
         if (this.props.siteA === orb){
             return "green";
         }
 
+        // Give red class to the ending destination orb
         if (this.props.siteB === orb) {
             return "red";
         }
 
+        // Post calculation
         if (this.props.result) {
             const allStarts = this.props.result.usedRoutes.map(r => r.start);
             const allEnds = this.props.result.usedRoutes.map(r => r.end);
+            
+            // Give any orbs existing in the results used path an orange class; hide the rest
             if (allStarts.includes(orb) || allEnds.includes(orb)) {
                 return "orange";
             } else {
@@ -34,6 +38,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
             }
         }
         
+        // Classes for hovering over orbs when selecting
         if (this.props.siteA) {
             if(!this.props.siteB) {
                 return "second-select"
@@ -58,6 +63,7 @@ export class GraphicalUI extends React.Component<ComponentProps> {
     }
 
     render() {
+        // Octagon of orbs to choose from
         return <div id="graphical-pathfinder-container">
             <div className="squeeze-row">
                 <div id={getOrbIdValue(Destination.A)}
@@ -102,7 +108,9 @@ export class GraphicalUI extends React.Component<ComponentProps> {
                     onClick={() => this.setSiteInfo(Destination.H)}>H</div>
 
             </div>
+
             {ConnectingLines(this.props.result)}
+
         </div>
     }
 }

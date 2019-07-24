@@ -4,6 +4,7 @@ import { getOrbIdValue } from "../functions/utils";
 
 export function ConnectingLines(result?: CalculationItem) {
 
+    // Get X and Y coordinates for orbs
     const getDivLocation = (destination: Destination) => {
         const id = getOrbIdValue(destination);
         const element = document.getElementById(id);
@@ -19,6 +20,7 @@ export function ConnectingLines(result?: CalculationItem) {
     }
 
     if (result) {
+        // Map through the used routes to draw a connecting line between each point used
         return result.usedRoutes.map(r => {
             const divALocation = getDivLocation(r.start);
             const divBLocation = getDivLocation(r.end);

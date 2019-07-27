@@ -1,4 +1,4 @@
-# Pathfinder
+# Pathfinder Graphical
 Use a calculator to find the shortest path between two points
 
 ## How to run:
@@ -11,4 +11,4 @@ In your terminal run: <br />
 - (optional) npm test
 
 # Rundown
-This is more visual version of the pathfinder project.
+This is a visual version of the pathfinder project.
